@@ -5,13 +5,12 @@
 #$ KEYWORDS:  led, sound
 #$ AUTHOR: topaz-244
 
-#$ PARSER: MARKED
+# --- Set LED and sound ---
 
 #$ OPTION_GROUP BEGIN: LEDs and Sound
 
-    #$ OPTION BEGIN (CHECKED): All OFF
+    #$ OPTION BEGIN (UNCHECKED): All OFF
         feature -LED_STRIP
-
         beeper -GYRO_CALIBRATED
         beeper -RX_LOST
         beeper -RX_LOST_LANDING
@@ -34,12 +33,10 @@
         beeper -CAM_CONNECTION_OPEN
         beeper -CAM_CONNECTION_CLOSE
         beeper -RC_SMOOTHING_INIT_FAIL
-
     #$ OPTION END
 
     #$ OPTION BEGIN (UNCHECKED): All ON
         feature LED_STRIP
-
         beeper GYRO_CALIBRATED
         beeper RX_LOST
         beeper RX_LOST_LANDING
@@ -62,7 +59,6 @@
         beeper CAM_CONNECTION_OPEN
         beeper CAM_CONNECTION_CLOSE
         beeper RC_SMOOTHING_INIT_FAIL
-
     #$ OPTION END
 
 #$ OPTION_GROUP END
