@@ -1,0 +1,27 @@
+#$ TITLE: KD Main BetaFlight Default Setup
+#$ FIRMWARE_VERSION: 4.5
+#$ CATEGORY: BNF
+#$ STATUS: COMMUNITY
+#$ KEYWORDS: bnf, diff, default, all
+#$ AUTHOR: topaz-244
+
+
+#$ DESCRIPTION: Resets to default 4.5.0 diff that the BetaFPV Air75 ships with.
+#$ DESCRIPTION: Includes LED & Sound, 
+
+
+#$ DISCUSSION: https://github.com/betaflight/firmware-presets/issues/488
+
+
+#$ PARSER: MARKED
+
+#$ FORCE_OPTIONS_REVIEW: TRUE
+
+
+
+
+
+#$ OPTION BEGIN (UNCHECKED): LED and Sound
+    #$ INCLUDE: presets/4.5/other/LED_and_sound.txt
+#$ OPTION END
+
