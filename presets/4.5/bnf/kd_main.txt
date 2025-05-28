@@ -233,6 +233,29 @@ set gyro_calib_noise_limit = 200
 
 #$ OPTION_GROUP END
 
+# --- MODES TAB ---
+
+#$ OPTION_GROUP BEGIN: Select Modes Setup
+
+    #$ OPTION BEGIN (UNCHECKED): Default Modes
+
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): JJ Modes
+
+    #$ OPTION END
+
+    #$ OPTION BEGIN (CHECKED): Normal Modes
+        aux 0 0 0 1900 2100 0 0
+        aux 1 1 4 1375 1600 0 0
+        aux 2 27 0 900 900 0 40
+        aux 3 35 4 1825 2100 0 0
+        aux 4 40 1 900 1200 0 0
+        aux 5 40 1 1775 2100 0 0
+    #$ OPTION END
+
+
+#$ OPTION_GROUP END
 
 # --- MOTORS TAB ---
 set yaw_motors_reversed = ON
@@ -339,7 +362,7 @@ set dyn_notch_q = 500
 
 # --- ELRS Setup ---
 
-#$ OPTION_GROUP BEGIN: ELRS
+#$ OPTION_GROUP BEGIN: ELRS Setup, for Rates 500Hz and set the TX rate here
 
     #$ OPTION BEGIN (UNCHECKED): USE Channel Forwarding to Servo Pads? , Starts on Channel 9
         feature -SERVO_TILT
@@ -348,6 +371,18 @@ set dyn_notch_q = 500
 
     #$ OPTION BEGIN (UNCHECKED): ELRS Rate, 50 Hz
         #$ INCLUDE: presets/4.3/rc_link/elrs_50hz.txt
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): ELRS Rate, 150 Hz
+        #$ INCLUDE: presets/4.3/rc_link/elrs_150hz.txt
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): ELRS Rate, 250 Hz
+        #$ INCLUDE: presets/4.3/rc_link/elrs_250hz.txt
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): ELRS Rate, 500 Hz
+        #$ INCLUDE: presets/4.3/rc_link/elrs_500hz.txt
     #$ OPTION END
 
 #$ OPTION_GROUP END
