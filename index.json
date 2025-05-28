@@ -5771,7 +5771,7 @@
     },
     {
       "fullPath": "presets/4.5/bnf/kd_main.txt",
-      "hash": "eada31fcbe4dc358a35ed3d25cd2e50e40a00e614caaa1706de905a15c9f5ab0",
+      "hash": "9ce389c9b2e087bb9d925c2a379e5d18e7b64b61db5f2842f8de004572ba8fda",
       "title": "KD Main BetaFlight Default Setup",
       "firmware_version": [
         "4.5"
@@ -6567,7 +6567,7 @@
     },
     {
       "fullPath": "presets/4.5/other/LED_and_sound.txt",
-      "hash": "79001976a394489854ec49d080e9c6e1a0798b8ac545ec1ab92fdaf02076d564",
+      "hash": "c3f3a74d046d2c4a54a5729bbb128b8bf459e2bf83b89d018e4d233be48c39c4",
       "title": "LED and Sound Settings",
       "firmware_version": [
         "4.5"

@@ -18,10 +18,319 @@
 #$ FORCE_OPTIONS_REVIEW: TRUE
 
 
+# --- PORTS TAB ---
+
+#$ OPTION_GROUP BEGIN: Select port for VTX, MSP_Displayport
+
+    #$ OPTION BEGIN (UNCHECKED): UART 1 
+        serial 0 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 2 
+         serial 1 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 3 
+        serial 2 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (CHECKED): UART 4
+        serial 3 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 5 
+        serial 4 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 6 
+        serial 5 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 7
+        serial 6 131073 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 8
+        serial 7 131073 115200 57600 0 115200
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: Select port for Serial RC RX
+
+    #$ OPTION BEGIN (UNCHECKED): UART 1 
+        serial 0 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 2 
+         serial 1 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 3 
+        serial 2 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 4
+        serial 3 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 5 
+        serial 4 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (CHECKED): UART 6 
+        serial 5 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 7
+        serial 6 64 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 8
+        serial 7 64 115200 57600 0 115200
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: Select port for GPS
+
+    #$ OPTION BEGIN (UNCHECKED): UART 1 
+        serial 0 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 2 
+         serial 1 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 3 
+        serial 2 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 4
+        serial 3 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 5 
+        serial 4 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (CHECKED): UART 6 
+        serial 5 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 7
+        serial 6 2 115200 57600 0 115200
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): UART 8
+        serial 7 2 115200 57600 0 115200
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+# --- Configuration Tab ---
+set small_angle = 180
+feature -AIRMODE
+
+# --- Power & Battery Tab
+
+#$ OPTION_GROUP BEGIN: Battery, Type of Battery
+
+    #$ OPTION BEGIN (UNCHECKED): Li-Ion
+        set vbat_max_cell_voltage = 420
+        set vbat_min_cell_voltage = 290
+        set vbat_warning_cell_voltage = 310
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Li-Po
+        set vbat_max_cell_voltage = 420
+        set vbat_min_cell_voltage = 330
+        set vbat_warning_cell_voltage = 350
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: Battery, FORCE Number of Cells in Series
+
+    #$ OPTION BEGIN (UNCHECKED): 4S
+        force_battery_cell_count = 4
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): 5S
+        set force_battery_cell_count = 5
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): 6S
+        set force_battery_cell_count = 6
+    #$ OPTION END
+
+#$ OPTION_GROUP END
 
 
+# --- Failsafe Tab ---
 
-#$ OPTION BEGIN (UNCHECKED): LED and Sound
-    #$ INCLUDE: presets/4.5/other/LED_and_sound.txt
-#$ OPTION END
+#$ OPTION_GROUP BEGIN: Set FAILSAFE, Land
 
+    #$ OPTION BEGIN (UNCHECKED): LAND, 3.0s cut
+        set failsafe_off_delay = 30
+        set failsafe_procedure = AUTO-LAND
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): DROP from sky
+        set failsafe_off_delay = 30
+        set failsafe_procedure = DROP
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+
+# --- PID Tuning Tab ---
+
+#$ OPTION_GROUP BEGIN: Select Rates for Profile 0
+    #$ OPTION BEGIN (UNCHECKED): Default Rates 70deg/s, 470deg/s max, 0.6 expo
+        set rates_type = ACTUAL
+        set roll_rc_rate = 7
+        set pitch_rc_rate = 7
+        set yaw_rc_rate = 7
+        set roll_srate = 47
+        set pitch_srate = 47
+        set yaw_srate = 47
+        set roll_expo = 60
+        set pitch_expo = 60
+        set yaw_expo = 60
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): JJ Rates
+        set rates_type = ACTUAL
+        set roll_rc_rate = 10
+        set pitch_rc_rate = 10
+        set yaw_rc_rate = 12
+        set roll_srate = 72
+        set pitch_srate = 72
+        set yaw_srate = 72
+        set roll_expo = 30
+        set pitch_expo = 30
+        set yaw_expo = 30
+    #$ OPTION END
+
+    #$ OPTION BEGIN (CHECKED): Normal Rates
+        set rates_type = ACTUAL
+        set roll_rc_rate = 7
+        set pitch_rc_rate = 7
+        set yaw_rc_rate = 12
+        set roll_srate = 40
+        set pitch_srate = 40
+        set yaw_srate = 67
+        set roll_expo = 0
+        set pitch_expo = 0
+        set yaw_expo = 0
+    #$ OPTION END
+
+
+#$ OPTION_GROUP END
+
+
+# --- MOTORS TAB ---
+set yaw_motors_reversed = ON
+
+    # ---  Default BDShot Setup ---
+set dshot_bidir = ON
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+
+
+# --- OSD ---
+
+#$ OPTION_GROUP BEGIN: Select Rates for Profile 0
+    #$ OPTION BEGIN (UNCHECKED): Default OSD
+
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): JJ OSD
+        set osd_vbat_pos = 2656
+        set osd_link_quality_pos = 2060
+        set osd_flymode_pos = 2665
+        set osd_vtx_channel_pos = 3080
+        set osd_crosshairs_pos = 2360
+        set osd_ah_sbar_pos = 2361
+        set osd_ah_pos = 2233
+        set osd_current_pos = 2624
+        set osd_craft_name_pos = 0
+        set osd_pilot_name_pos = 2048
+        set osd_compass_bar_pos = 2069
+        set osd_altitude_pos = 3406
+        set osd_warnings_pos = 14964
+        set osd_avg_cell_voltage_pos = 3374
+        set osd_disarmed_pos = 2646
+        set osd_flip_arrow_pos = 2617
+    #$ OPTION END
+
+    #$ OPTION BEGIN (CHECKED): Normal OSD
+        set osd_tim_1_pos = 3564
+        set osd_craft_name_pos = 2082
+        set osd_compass_bar_pos = 2070
+        set osd_warnings_pos = 14901
+        set osd_avg_cell_voltage_pos = 2593
+    #$ OPTION END
+
+
+#$ OPTION_GROUP END
+
+
+#$ OPTION_GROUP BEGIN: LEDs and Sound
+
+    #$ OPTION BEGIN (CHECKED): All OFF
+        feature -LED_STRIP
+        beeper -GYRO_CALIBRATED
+        beeper -RX_LOST
+        beeper -RX_LOST_LANDING
+        beeper -DISARMING
+        beeper -ARMING
+        beeper -ARMING_GPS_FIX
+        beeper -BAT_CRIT_LOW
+        beeper -BAT_LOW
+        beeper -GPS_STATUS
+        beeper -RX_SET
+        beeper -ACC_CALIBRATION
+        beeper -ACC_CALIBRATION_FAIL
+        beeper -READY_BEEP
+        beeper -DISARM_REPEAT
+        beeper -ARMED
+        beeper -SYSTEM_INIT
+        beeper -ON_USB
+        beeper -BLACKBOX_ERASE
+        beeper -CRASH_FLIP
+        beeper -CAM_CONNECTION_OPEN
+        beeper -CAM_CONNECTION_CLOSE
+        beeper -RC_SMOOTHING_INIT_FAIL
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): All ON
+        feature LED_STRIP
+        beeper GYRO_CALIBRATED
+        beeper RX_LOST
+        beeper RX_LOST_LANDING
+        beeper DISARMING
+        beeper ARMING
+        beeper ARMING_GPS_FIX
+        beeper BAT_CRIT_LOW
+        beeper BAT_LOW
+        beeper GPS_STATUS
+        beeper RX_SET
+        beeper ACC_CALIBRATION
+        beeper ACC_CALIBRATION_FAIL
+        beeper READY_BEEP
+        beeper DISARM_REPEAT
+        beeper ARMED
+        beeper SYSTEM_INIT
+        beeper ON_USB
+        beeper BLACKBOX_ERASE
+        beeper CRASH_FLIP
+        beeper CAM_CONNECTION_OPEN
+        beeper CAM_CONNECTION_CLOSE
+        beeper RC_SMOOTHING_INIT_FAIL
+    #$ OPTION END
+
+#$ OPTION_GROUP END
+
+# --- ELRS Setup ---
