@@ -131,6 +131,8 @@
 # --- Configuration Tab ---
 set small_angle = 180
 feature -AIRMODE
+set gyro_calib_duration = 50
+set gyro_calib_noise_limit = 200
 
 # --- Power & Battery Tab
 
@@ -243,7 +245,7 @@ set dyn_notch_q = 500
 
 # --- OSD ---
 
-#$ OPTION_GROUP BEGIN: Select Rates for Profile 0
+#$ OPTION_GROUP BEGIN: Select OSD for Profile 0
     #$ OPTION BEGIN (UNCHECKED): Default OSD
 
     #$ OPTION END
@@ -336,3 +338,16 @@ set dyn_notch_q = 500
 #$ OPTION_GROUP END
 
 # --- ELRS Setup ---
+
+#$ OPTION_GROUP BEGIN: ELRS
+
+    #$ OPTION BEGIN (UNCHECKED): USE Channel Forwarding to Servo Pads? , Starts on Channel 9
+        feature -SERVO_TILT
+        set channel_forwarding_start = 8
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): ELRS Rate, 50 Hz
+        #$ INCLUDE: presets/4.3/rc_link/elrs_50hz.txt
+    #$ OPTION END
+
+#$ OPTION_GROUP END
