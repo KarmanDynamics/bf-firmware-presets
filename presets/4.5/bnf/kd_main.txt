@@ -22,35 +22,35 @@
 
 #$ OPTION_GROUP BEGIN: Select port for VTX, MSP_Displayport
 
-    #$ OPTION BEGIN (UNCHECKED): UART 1 
+    #$ OPTION BEGIN (UNCHECKED): UART 1, VTX
         serial 0 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 2 
+    #$ OPTION BEGIN (UNCHECKED): UART 2, VTX 
          serial 1 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 3 
+    #$ OPTION BEGIN (UNCHECKED): UART 3, VTX
         serial 2 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (CHECKED): UART 4
+    #$ OPTION BEGIN (CHECKED): UART 4, VTX
         serial 3 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 5 
+    #$ OPTION BEGIN (UNCHECKED): UART 5, VTX
         serial 4 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 6 
+    #$ OPTION BEGIN (UNCHECKED): UART 6, VTX
         serial 5 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 7
+    #$ OPTION BEGIN (UNCHECKED): UART 7, VTX
         serial 6 131073 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 8
+    #$ OPTION BEGIN (UNCHECKED): UART 8, VTX
         serial 7 131073 115200 57600 0 115200
     #$ OPTION END
 
@@ -58,35 +58,35 @@
 
 #$ OPTION_GROUP BEGIN: Select port for Serial RC RX
 
-    #$ OPTION BEGIN (UNCHECKED): UART 1 
+    #$ OPTION BEGIN (UNCHECKED): UART 1, RC RX
         serial 0 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 2 
+    #$ OPTION BEGIN (UNCHECKED): UART 2, RC RX 
          serial 1 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 3 
+    #$ OPTION BEGIN (UNCHECKED): UART 3, RC RX 
         serial 2 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 4
+    #$ OPTION BEGIN (UNCHECKED): UART 4, RC RX
         serial 3 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 5 
+    #$ OPTION BEGIN (UNCHECKED): UART 5, RC RX 
         serial 4 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (CHECKED): UART 6 
+    #$ OPTION BEGIN (CHECKED): UART 6, RC RX 
         serial 5 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 7
+    #$ OPTION BEGIN (UNCHECKED): UART 7, RC RX
         serial 6 64 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 8
+    #$ OPTION BEGIN (UNCHECKED): UART 8, RC RX
         serial 7 64 115200 57600 0 115200
     #$ OPTION END
 
@@ -94,35 +94,35 @@
 
 #$ OPTION_GROUP BEGIN: Select port for GPS
 
-    #$ OPTION BEGIN (UNCHECKED): UART 1 
+    #$ OPTION BEGIN (UNCHECKED): UART 1, GPS
         serial 0 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 2 
+    #$ OPTION BEGIN (UNCHECKED): UART 2, GPS 
          serial 1 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 3 
+    #$ OPTION BEGIN (UNCHECKED): UART 3, GPS 
         serial 2 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 4
+    #$ OPTION BEGIN (UNCHECKED): UART 4, GPS
         serial 3 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 5 
+    #$ OPTION BEGIN (UNCHECKED): UART 5, GPS
         serial 4 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (CHECKED): UART 6 
+    #$ OPTION BEGIN (UNCHECKED): UART 6, GPS
         serial 5 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 7
+    #$ OPTION BEGIN (UNCHECKED): UART 7, GPS
         serial 6 2 115200 57600 0 115200
     #$ OPTION END
 
-    #$ OPTION BEGIN (UNCHECKED): UART 8
+    #$ OPTION BEGIN (UNCHECKED): UART 8, GPS
         serial 7 2 115200 57600 0 115200
     #$ OPTION END
 
@@ -136,7 +136,7 @@ feature -AIRMODE
 
 #$ OPTION_GROUP BEGIN: Battery, Type of Battery
 
-    #$ OPTION BEGIN (UNCHECKED): Li-Ion
+    #$ OPTION BEGIN (CHECKED): Li-Ion
         set vbat_max_cell_voltage = 420
         set vbat_min_cell_voltage = 290
         set vbat_warning_cell_voltage = 310
@@ -171,7 +171,7 @@ feature -AIRMODE
 
 #$ OPTION_GROUP BEGIN: Set FAILSAFE, Land
 
-    #$ OPTION BEGIN (UNCHECKED): LAND, 3.0s cut
+    #$ OPTION BEGIN (CHECKED): LAND, 3.0s cut
         set failsafe_off_delay = 30
         set failsafe_procedure = AUTO-LAND
     #$ OPTION END
@@ -187,6 +187,8 @@ feature -AIRMODE
 # --- PID Tuning Tab ---
 
 #$ OPTION_GROUP BEGIN: Select Rates for Profile 0
+    rateprofile 0
+
     #$ OPTION BEGIN (UNCHECKED): Default Rates 70deg/s, 470deg/s max, 0.6 expo
         set rates_type = ACTUAL
         set roll_rc_rate = 7
